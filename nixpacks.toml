@@ -1,18 +1,4 @@
-[System.IO.File]::WriteAllText("$PWD\nixpacks.toml", @"
 [phases.setup]
 nixPkgs = ["php83", "php83Packages.composer", "nodejs_20", "npm"]
 
 [phases.install]
-cmds = [
-  "composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs",
-  "npm ci"
-]
-
-[phases.build]
-cmds = [
-  "npm run build"
-]
-
-[start]
-cmd = "php artisan config:clear && php artisan mtype nixpacks.tomligrate --force && php artisan serve --host=0.0.0.0 --port=`$PORT"
-"@)
