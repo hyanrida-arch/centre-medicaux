@@ -1,4 +1,3 @@
-@'
 [phases.setup]
 nixPkgs = ["php83", "php83Packages.composer", "nodejs_20", "npm"]
 
@@ -18,4 +17,3 @@ cmds = [
 
 [start]
 cmd = "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT"
-'@ | Out-File -FilePath nixpacks.toml -Encoding utf8
